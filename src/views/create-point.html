@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% set pageId = "page-create-point" %}
+
+{% block title %}
+<title>Criar um ponto de coleta</title>
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="./styles/create-point.css">
+{% endblock style %}
+
+{% block content %}
+{% include "partials/page-header.html" %}
+<form action="">
+
+    <h1>Cadastro do ponto de coleta</h1>
+    <!-- Caixas com estilização -->
+
+    <fieldset>
+        <legend>
+            <h2>Dados da entidade</h2>
+        </legend>
+
+        <div class="field-group">
+            <div class="field">
+                <label for="">Nome da entidade</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="field">
+                <label for="">Imagem da entidade</label>
+                <input 
+                type="url" 
+                name="img" 
+                placeholder="http://"
+                required="required">
+            </div>
+        </div>
+
+        <div class="field-group">
+            <div class="field">
+                <label for="address">Endereço</label>
+                <input type="text" name="address" required>
+            </div>
+            <div class="field">
+                <label for="address">Número / Complemento</label>
+                <input type="text" name="address2" required>
+            </div>
+        </div>
+
+
+        <div class="field-group">
+            <div class="field">
+                <label for="state">Estado</label>
+                <select name="uf" required>
+                    <option value="">Selecione o Estado</option>
+                </select>
+
+                <input type="hidden" name="state">
+            </div>
+
+            <div class="field">
+                <label for="city">Cidade</label>
+                <select name="city" required>
+                    <option value="">Selecione a cidade</option>
+                </select>
+            </div>
+        </div>
+
+        <button>Cadastrar ponto de coleta</button>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            <h2>Itens de coleta</h2>
+            <span>Selecione um ou mais itens abaixo</span>
+        </legend>
+
+
+        <div class="items-grid">
+            <li data-id="1">
+                <img src="/extras-aula-1/icones/lampadas.svg" alt="Lampadas">
+                <span>Lampadas</span>
+            </li>
+
+            <li data-id="2">
+                <img src="/extras-aula-1/icones/baterias.svg" alt="Pilhas e Baterias">
+                <span>Pilhas e Baterias</span>
+            </li>
+
+            <li data-id="3">
+                <img src="/extras-aula-1/icones/papeis-papelao.svg" alt="Papeis e Papelão">
+                <span>Papeis e Papelão</span>
+            </li>
+
+            <li data-id="4">
+                <img src="/extras-aula-1/icones/eletronicos.svg" alt="Residuos eletronicos">
+                <span>Residuos eletronicos</span>
+            </li>
+
+            <li data-id="5">
+                <img src="/extras-aula-1/icones/organicos.svg" alt="Residuos Orgânicos">
+                <span>Residuos Orgânicos</span>
+            </li>
+
+            <li data-id="6">
+                <img src="/extras-aula-1/icones/oleo.svg" alt="Oleo de cozinha">
+                <span>Oleo de cozinha</span>
+            </li>
+
+        </div>
+
+        <input type="hidden" nome="item">
+
+    </fieldset>
+
+</form>
+{% endblock content %}
+
+{% block scripts %}
+<script src="./Script/create-point.js"></script>
+{% endblock scripts %}
